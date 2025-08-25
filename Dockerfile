@@ -2,10 +2,12 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-COPY package.json .
+COPY package*.json ./
 
 RUN npm install
 
 COPY . .
+
+EXPOSE 5000
 
 CMD [ "npx", "json-server", "db.json", "--port", "5000" ]
